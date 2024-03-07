@@ -1,0 +1,25 @@
+name:AndroidBuildCiCd
+on:
+  pull_request:
+    branches: [master]
+    push:
+      branches: [ master ]
+
+      jobs:
+        build:
+          runs on : window-latest
+          steps:
+            - name: Checkout
+              uses: actions/checkout@v4.1.1
+            - name: Setup Java JDK
+              uses: actions/setup-java@v4.1.0
+
+            - name: Build With Gradle
+              run: ./gradlew build
+
+            - name: Upload a Build Artifact
+              uses: actions/upload-artifact@v4
+
+              with:
+                name: AndroidCiCd.apk
+                path: app/build/outputs/app-debug.apk
