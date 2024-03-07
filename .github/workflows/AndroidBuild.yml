@@ -1,4 +1,4 @@
-name:AndroidBuildCiCd
+name: AndroidBuildCiCd
 on:
   pull_request:
     branches: [master]
@@ -7,7 +7,7 @@ on:
 
       jobs:
         build:
-          runs on : ubuntu-latest
+          runs on: window-latest
           steps:
             - name: Checkout
               uses: actions/checkout@v4.1.1
